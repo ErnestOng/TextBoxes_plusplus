@@ -18,6 +18,7 @@
 #include <boost/geometry/geometries/polygon.hpp>
 #include <boost/geometry/io/wkt/wkt.hpp>
 #include <boost/foreach.hpp>
+#include <boost/format.hpp>
 
 #include "caffe/util/bbox_util.hpp"
 
