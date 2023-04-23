@@ -20,6 +20,8 @@
 #include <boost/foreach.hpp>
 #include <boost/format.hpp>
 
+#include <opencv2/imgproc.hpp>
+
 #include "caffe/util/bbox_util.hpp"
 
 namespace caffe {
@@ -3858,7 +3860,7 @@ void VisualizeBBox(const vector<cv::Mat>& images, const Blob<Dtype>* detections,
                   cv::Point(text.width, text.height + baseline),
                   cv::RGB(255, 255, 255), cv::FILLED);
     cv::putText(image, buffer, cv::Point(0, text.height + baseline / 2.),
-                fontface, scale, cv::RGB(0, 0, 0), thickness, 8);
+                fontface, scale, CV_RGB(0, 0, 0), thickness, 8);
     // Draw bboxes.
     for (map<int, vector<NormalizedBBox> >::iterator it =
          all_detections[i].begin(); it != all_detections[i].end(); ++it) {
@@ -3884,14 +3886,14 @@ void VisualizeBBox(const vector<cv::Mat>& images, const Blob<Dtype>* detections,
             bottom_left_pt + cv::Point(text.width, -text.height-baseline),
             color, cv::FILLED);
         cv::putText(image, buffer, bottom_left_pt - cv::Point(0, baseline),
-                    fontface, scale, cv::RGB(0, 0, 0), thickness, 8);
+                    fontface, scale, CV_RGB(0, 0, 0), thickness, 8);
       }
     }
     // Save result if required.
     if (!save_file.empty()) {
       if (!cap_out.isOpened()) {
         cv::Size size(image.size().width, image.size().height);
-        cv::VideoWriter outputVideo(save_file, cv::VideoWriter::FOURCC('D', 'I', 'V', 'X'),
+        cv::VideoWriter outputVideo(save_file, cv::VideoWriter::fourcc('D', 'I', 'V', 'X'),
             30, size, true);
         cap_out = outputVideo;
       }
