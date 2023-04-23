@@ -3858,7 +3858,7 @@ void VisualizeBBox(const vector<cv::Mat>& images, const Blob<Dtype>* detections,
                                     &baseline);
     cv::rectangle(image, cv::Point(0, 0),
                   cv::Point(text.width, text.height + baseline),
-                  cv::RGB(255, 255, 255), cv::FILLED);
+                  CV_RGB(255, 255, 255), cv::FILLED);
     cv::putText(image, buffer, cv::Point(0, text.height + baseline / 2.),
                 fontface, scale, CV_RGB(0, 0, 0), thickness, 8);
     // Draw bboxes.
