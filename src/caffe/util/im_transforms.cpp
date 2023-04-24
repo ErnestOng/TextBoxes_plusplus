@@ -652,7 +652,7 @@ cv::Mat ApplyNoise(const cv::Mat& in_img, const NoiseParameter& param) {
 
   if (param.convert_to_hsv()) {
     cv::Mat hsv_image;
-    cv::cvtColor(out_img, hsv_image, CV_\BGR2HSV);
+    cv::cvtColor(out_img, hsv_image, CV_BGR2HSV);
     out_img = hsv_image;
   }
   if (param.convert_to_lab()) {
